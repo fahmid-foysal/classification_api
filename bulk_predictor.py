@@ -33,7 +33,66 @@ def predict_bulk(image_b64):
     class_idx = np.argmax(preds[0])
     confidence = float(preds[0][class_idx])
 
+flower_info = {
+    'Chandramallika': {
+        'scientific_name': 'Chrysanthemum morifolium',
+        'region': 'Widely cultivated in South Asia, especially in winter'
+    },
+    'Cosmos Phul': {
+        'scientific_name': 'Cosmos bipinnatus',
+        'region': 'Native to Mexico, but common in gardens across South Asia'
+    },
+    'Gada': {
+        'scientific_name': 'Tagetes erecta',
+        'region': 'Native to Mexico, widely grown in Bangladesh and India'
+    },
+    'Golap': {
+        'scientific_name': 'Rosa spp.',
+        'region': 'Globally cultivated, popular in Bangladesh'
+    },
+    'Jaba': {
+        'scientific_name': 'Hibiscus rosa-sinensis',
+        'region': 'Native to East Asia, very common in Bangladesh'
+    },
+    'Kagoj Phul': {
+        'scientific_name': 'Bougainvillea glabra',
+        'region': 'Native to South America, widely grown in South Asia'
+    },
+    'Noyontara': {
+        'scientific_name': 'Catharanthus roseus',
+        'region': 'Native to Madagascar, naturalized in tropical Asia'
+    },
+    'Radhachura': {
+        'scientific_name': 'Caesalpinia pulcherrima',
+        'region': 'Tropical and subtropical regions of Asia and Americas'
+    },
+    'Rangan': {
+        'scientific_name': 'Ixora coccinea',
+        'region': 'Native to Southern India and Sri Lanka'
+    },
+    'Salvia': {
+        'scientific_name': 'Salvia splendens',
+        'region': 'Native to Brazil, commonly grown in tropical gardens'
+    },
+    'Sandhyamani': {
+        'scientific_name': 'Mirabilis jalapa',
+        'region': 'Native to Peru, grown in tropical Asia as an ornamental'
+    },
+    'Surjomukhi': {
+        'scientific_name': 'Helianthus annuus',
+        'region': 'Native to North America, cultivated worldwide'
+    },
+    'Zinnia': {
+        'scientific_name': 'Zinnia elegans',
+        'region': 'Native to Mexico, popular in gardens across the world'
+    }
+}
+
+
     return {
         "predicted_class": class_names[class_idx],
-        "confidence": confidence
+        "confidence": confidence,
+        "sci_name": flower_info[class_names[class_idx]]['scientific_name'],
+        "region": flower_info[class_names[class_idx]]['region']
     }
+
